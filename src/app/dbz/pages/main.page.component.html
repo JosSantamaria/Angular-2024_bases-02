@@ -1,0 +1,31 @@
+<h2>Dbz Personajes</h2>
+<hr>
+
+<div class="row">
+
+  <div class="col">
+    <!-- component:: Listado de personaje  -->
+    <!-- ?
+      ? En este Punto indicamos al Padre que enviaremos info al componente hijo
+      ? Para eso es necesario tomar el selector del Hijo y declarar el nombre de la propiedad
+      ? YA declarada en este mismo (Input -> characterList), ponerla en llaves cuadradas [propHijo] para
+      ? la resolucion de Angular (haga el BINDING de la propiedad), y la asigne al hijo desde el padre.
+      ! Se debe poner la propiedad o variable del emitter hacia la funcion que recibe en el padre.
+      * SINTAXIS ! recordatorio: (emitterPropiedadHijo) = "funcionReceptoraPadre($event)
+     -->
+    <dbz-list
+    [characterList]="characters"
+    (emitDeleteCharacterId)="onDeleteCharacterId($event)" ></dbz-list>
+  </div>
+
+  <!-- {{characters|json}} -->
+
+  <div class="col">
+    <!-- component:: Agregar Personaje -->
+    <!-- ? Para Emitir un evento usamos los (parentesis), YA QUE el eventEmmitter sera tomado como un evento -->
+    <!-- * SINTAXIS (propiedadEmitida):EventEmitter = "funcionOpropiedadQueRecibe($evento)" -->
+    <dbz-add-character (emitNewCharacter)="onAddNewCharacter($event)"></dbz-add-character>
+  </div>
+
+</div>
+

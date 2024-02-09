@@ -1,0 +1,19 @@
+<h4>Agregar Personaje</h4>
+<form class="row" action="" (ngSubmit)="emitCharacter()">
+
+  <input class="form-control mb-2" type="text"
+  [(ngModel)]="character.name"
+  name="name"
+  placeholder="Nombre">
+
+  <input class="form-control mb-2" type="number"
+  [(ngModel)]="character.power"
+  name="power"
+  placeholder="Personaje">
+
+  <!-- *En este caso podemos acceder a el objeto por medio del twoWayDataBinding
+  declarado anteriormente [(ngModel)]  (click)="emitCaracter()" -->
+  <button class="btn btn-primary" type="submit">Agregar</button>
+</form>
+
+<!-- <pre>{{character | json}}</pre> -->

@@ -1,0 +1,37 @@
+<h4>Listado</h4>
+    <ul class="list-group">
+      <!-- Podemos agregar un indice, terminamos el ngFor con ; Luego declaramos  let i = index
+      ! index:: existe como un objeto dentro del FOR (por defecto): for( index; characters = true; index++)
+      * Hay mas metodos para el ngFor dentro de la documentacion de Angular.
+      ? Como: first, last, even, odd, etc
+      -->
+
+      <li *ngFor="let character of characterList;
+      let i = index;
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even;
+      let isOdd = odd;"
+      class="list-group-item d-flex justify-content-between align-items-center"
+
+      [ngClass]="
+      { 'list-group-item-success': isOdd,
+       'list-group-item-primary': isEven}">
+
+       <div>
+        <span class="text-primary"> {{i + 1}}.</span>
+        <span>{{character.name}} - </span>
+        <b>Power:</b>
+        <span>{{character.power}}</span>
+       </div>
+      <!-- *A partir de Indice podemos deducir algunos datos -->
+      <!-- <span>Es el Primero: {{ isFirst }}</span>
+      <br>
+      <span>Es el Ultimo: {{isLast}}</span> -->
+      <!-- <span>Es el Par: {{ isEven }}</span>
+      <br>
+      <span>Es el ImPar: {{isOdd}}</span> -->
+      <!--! Agregamos boton para quitar de listado  -->
+        <button (click)="onDeleteCharacterId(character.id)" class="btn btn-danger"> X </button>
+    </li>
+    </ul>
